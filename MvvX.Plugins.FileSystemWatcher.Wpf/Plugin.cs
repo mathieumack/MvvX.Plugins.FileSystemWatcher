@@ -13,7 +13,10 @@ namespace MvvX.Plugins.FileSystemWatcher.Wpf
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IFileSystemWatcher>(new PlatformFileSystemWatcher());
+            Mvx.RegisterType<IFileSystemWatcher>(() =>
+            {
+                return new PlatformFileSystemWatcher();
+            });
         }
     }
 }
